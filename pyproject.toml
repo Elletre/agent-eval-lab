@@ -13,11 +13,20 @@ dependencies = ["pydantic>=2.10,<3", "inspect-ai>=0.3.100,<0.4"]
 [project.scripts]
 agent-eval = "agent_eval_lab.cli:main"
 
+[project.optional-dependencies]
+providers = [
+    "anthropic>=0.49,<1",
+    "openai>=1.68,<3",
+]
+
 [dependency-groups]
 dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.11,<1", "mypy>=1.15,<2"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/agent_eval_lab"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"data" = "agent_eval_lab/data"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -34,3 +43,10 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 python_version = "3.11"
 strict = true
 packages = ["agent_eval_lab"]
+
+# The application does not use NumPy; Inspect imports its version-specific stubs.
+# Skip those stubs when checking Python 3.11 source from a Python 3.13 environment.
+[[tool.mypy.overrides]]
+module = ["numpy", "numpy.*"]
+follow_imports = "skip"
+follow_imports_for_stubs = true

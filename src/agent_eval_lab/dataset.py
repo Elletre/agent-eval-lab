@@ -8,7 +8,12 @@ from pydantic import TypeAdapter
 
 from agent_eval_lab.schemas import Scenario
 
-DEFAULT_DATASET = Path(__file__).resolve().parents[2] / "data" / "scenarios.json"
+_PACKAGED_DATASET = Path(__file__).resolve().parent / "data" / "scenarios.json"
+DEFAULT_DATASET = (
+    _PACKAGED_DATASET
+    if _PACKAGED_DATASET.exists()
+    else Path(__file__).resolve().parents[2] / "data" / "scenarios.json"
+)
 
 
 def load_scenarios(path: Path | None = None, split: str = "dev") -> list[Scenario]:
