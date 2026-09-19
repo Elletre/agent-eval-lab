@@ -90,6 +90,20 @@ class ObservationRequirement(Contract):
     arguments: dict[str, str] = Field(default_factory=dict)
     ok: bool = True
 
+    @model_validator(mode="after")
+    def valid_observation(self) -> Self:
+        allowed = {
+            "lookup_memory": {"key"},
+            "list_events": {"query"},
+            "read_email": {"email_id"},
+            "update_event": {"event_id", "title", "date", "time"},
+        }
+        if self.tool not in allowed:
+            raise ValueError("Unknown observation tool")
+        if set(self.arguments) - allowed[self.tool]:
+            raise ValueError("Unknown observation argument")
+        return self
+
 
 class Expectation(Contract):
     status: Status
@@ -125,7 +139,7 @@ class Scenario(Contract):
             raise ValueError("Duplicate expected update")
         if updates and self.expectation.status != "updated":
             raise ValueError("Only updated outcomes may authorize mutations")
-        for update in updates:
+        for update in updates + self.expectation.allowed_write_attempts:
             if update.event_id not in ids:
                 raise ValueError("Expected update refers to nonexistent event")
             Event.model_validate(ids[update.event_id].model_dump() | update.changes)
