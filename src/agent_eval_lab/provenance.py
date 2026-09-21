@@ -31,6 +31,6 @@ def provenance() -> dict[str, Any]:
         "working_tree_dirty": bool(git("status", "--porcelain")),
         "source_hash": source.hexdigest(),
         "lock_hash": hashlib.sha256(lock.read_bytes()).hexdigest() if lock.exists() else None,
-        "scorer_version": "1.0.0",
+        "scorer_version": "1.1.0",
         "environment_version": "1.0.0",
     }

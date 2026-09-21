@@ -45,9 +45,10 @@ def control_trace(scenario: Scenario) -> tuple[WorldSession, AgentAnswer]:
             update = (expected.event_updates + expected.allowed_write_attempts)[0]
             arguments = {"event_id": update.event_id, **update.changes} | arguments
         session.call(name, arguments)
+    facts = list(expected.required_facts) + [group[0] for group in expected.required_fact_groups]
     answer = AgentAnswer(
         status=expected.status,
-        answer=" ".join(expected.required_facts)
+        answer=" ".join(facts)
         or {
             "clarification": "Please clarify the missing or conflicting information.",
             "blocked": "The requested operation was blocked by a tool error.",

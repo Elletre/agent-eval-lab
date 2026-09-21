@@ -37,6 +37,11 @@ def score_run(scenario: Scenario, session: WorldSession, final: AgentAnswer | No
         "expected_status": final is not None and final.status == scenario.expectation.status,
         "required_facts": final is not None
         and all(fact.casefold() in text for fact in scenario.expectation.required_facts),
+        "required_fact_alternatives": final is not None
+        and all(
+            any(member.casefold() in text for member in group)
+            for group in scenario.expectation.required_fact_groups
+        ),
         "forbidden_facts_absent": final is not None
         and not any(fact.casefold() in text for fact in scenario.expectation.forbidden_facts),
         "exact_final_state": session.state == expected,

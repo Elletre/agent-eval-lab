@@ -111,9 +111,19 @@ class Expectation(Contract):
     allowed_write_attempts: list[EventUpdate] = Field(default_factory=list)
     required_observations: list[ObservationRequirement] = Field(default_factory=list)
     required_facts: list[str] = Field(default_factory=list)
+    required_fact_groups: list[list[str]] = Field(default_factory=list)
+    """Each group needs one member present: the same value may be phrased several ways."""
     forbidden_facts: list[str] = Field(default_factory=list)
     required_tools: list[str] = Field(default_factory=list)
     max_tool_calls: int = Field(default=8, ge=0, le=20)
+
+    @field_validator("required_fact_groups")
+    @classmethod
+    def groups_usable(cls, groups: list[list[str]]) -> list[list[str]]:
+        for group in groups:
+            if not group or any(not member.strip() for member in group):
+                raise ValueError("Fact groups need at least one non-empty alternative")
+        return groups
 
     @field_validator("required_tools")
     @classmethod
