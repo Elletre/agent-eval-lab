@@ -68,3 +68,22 @@ def test_negation_is_not_detected_and_is_left_to_review() -> None:
         answer="I could not confirm the preference; it is definitely not 14:00.",
     )
     assert score_run(scenario, session, negated).passed
+
+
+def test_evidence_shape_never_decides_a_trial() -> None:
+    """The project does not trust `evidence`, so it must not reject an answer either.
+
+    A live run lost 23 of 81 trials to answers that were correct except for
+    returning whole observed records in `evidence` instead of identifiers.
+    """
+    scenario = next(s for s in SCENARIOS if s.id == "memory_update-01")
+    session, good = control_trace(scenario)
+    rich = AgentAnswer.model_validate(
+        {
+            "status": good.status,
+            "answer": good.answer,
+            "evidence": [{"key": "preferred_meeting_time", "value": "14:00"}],
+        }
+    )
+    assert rich.evidence == ['{"key": "preferred_meeting_time", "value": "14:00"}']
+    assert score_run(scenario, session, rich).passed

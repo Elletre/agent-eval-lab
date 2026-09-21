@@ -1,5 +1,6 @@
 """Strict data contracts shared by tools, adapters, and scorers."""
 
+import json
 from datetime import date, datetime, time
 from typing import Any, Literal, Self
 
@@ -162,6 +163,21 @@ class AgentAnswer(Contract):
     status: Status
     answer: str = Field(min_length=1)
     evidence: list[str] = Field(default_factory=list)
+    """Kept for review, never trusted as proof — and never a reason to reject an answer.
+
+    Models often return whole observed records here instead of identifiers. The
+    status and the answer are what the scorer grades, so richer evidence is
+    normalised to text rather than failing the trial."""
+
+    @field_validator("evidence", mode="before")
+    @classmethod
+    def as_text(cls, value: Any) -> Any:
+        if isinstance(value, list):
+            return [
+                item if isinstance(item, str) else json.dumps(item, sort_keys=True)
+                for item in value
+            ]
+        return value
 
 
 class ToolCall(Contract):
