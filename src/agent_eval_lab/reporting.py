@@ -99,6 +99,8 @@ def summarize(run: dict[str, Any]) -> dict[str, Any]:
         "failures": dict(Counter(failure for row in rows for failure in row["failures"])),
         "tool_calls": sum(row["tool_calls"] for row in rows),
         "tool_errors": sum(row["tool_errors"] for row in rows),
+        "mean_tool_calls": sum(row["tool_calls"] for row in rows) / len(rows),
+        "max_tool_calls": max(row["tool_calls"] for row in rows),
     }
 
 
@@ -121,6 +123,8 @@ def report_markdown(run: dict[str, Any]) -> str:
         f"| Scenarios passing every repeat | {stats['stable_pass_scenarios']} |",
         f"| Scenarios with mixed repeat outcomes | {stats['mixed_outcome_scenarios']} |",
         f"| Tool calls / errors | {stats['tool_calls']} / {stats['tool_errors']} |",
+        f"| Tool calls per trial (mean / max) | {stats['mean_tool_calls']:.1f} / "
+        f"{stats['max_tool_calls']} |",
         "",
         "Repeated trials are not independent new scenarios. No population-level claim or",
         "statistical significance is inferred from this small, hand-authored dataset.",

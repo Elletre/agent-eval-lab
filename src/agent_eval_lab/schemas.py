@@ -116,6 +116,8 @@ class Expectation(Contract):
     forbidden_facts: list[str] = Field(default_factory=list)
     required_tools: list[str] = Field(default_factory=list)
     max_tool_calls: int = Field(default=8, ge=0, le=20)
+    """A loop guard, not an efficiency target: set it above the work the case needs.
+    Economy is reported as a diagnostic so that re-checking a write is not a failure."""
 
     @field_validator("required_fact_groups")
     @classmethod

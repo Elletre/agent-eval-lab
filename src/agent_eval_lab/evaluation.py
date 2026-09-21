@@ -58,7 +58,7 @@ def score_run(scenario: Scenario, session: WorldSession, final: AgentAnswer | No
             )
             for requirement in scenario.expectation.required_observations
         ),
-        "tool_budget": len(session.trace) <= scenario.expectation.max_tool_calls,
+        "tool_loop_guard": len(session.trace) <= scenario.expectation.max_tool_calls,
         "known_tools_only": all(
             call.name in {"lookup_memory", "list_events", "read_email", "update_event"}
             for call in session.trace

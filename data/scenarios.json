@@ -43,7 +43,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -100,7 +100,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -157,7 +157,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -214,7 +214,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -276,7 +276,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -327,7 +327,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -386,7 +386,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -449,7 +449,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -515,7 +515,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -578,7 +578,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -634,7 +634,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 1,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -676,7 +676,7 @@
       "required_tools": [
         "update_event"
       ],
-      "max_tool_calls": 1,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [
         {
           "event_id": "release",
@@ -723,7 +723,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 1,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -773,7 +773,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 1,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -827,7 +827,7 @@
         "list_events",
         "update_event"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [
         {
           "event_id": "retro",
@@ -889,7 +889,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -939,7 +939,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -989,7 +989,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1039,7 +1039,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1089,7 +1089,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1131,7 +1131,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1182,7 +1182,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1233,7 +1233,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1281,7 +1281,7 @@
       "required_facts": [],
       "forbidden_facts": [],
       "required_tools": [],
-      "max_tool_calls": 0,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [],
       "required_fact_groups": [
@@ -1330,7 +1330,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 3,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1390,7 +1390,7 @@
       "required_tools": [
         "update_event"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1451,7 +1451,7 @@
         "list_events",
         "update_event"
       ],
-      "max_tool_calls": 3,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1507,7 +1507,7 @@
       "required_tools": [
         "update_event"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1569,7 +1569,7 @@
       "required_tools": [
         "update_event"
       ],
-      "max_tool_calls": 3,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1641,7 +1641,7 @@
         "lookup_memory",
         "update_event"
       ],
-      "max_tool_calls": 3,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1692,7 +1692,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1740,7 +1740,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1790,7 +1790,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1844,7 +1844,7 @@
       "required_tools": [
         "list_events"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1892,7 +1892,7 @@
       "required_tools": [
         "read_email"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -1948,7 +1948,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -2004,7 +2004,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -2060,7 +2060,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -2123,7 +2123,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -2186,7 +2186,7 @@
       "required_tools": [
         "lookup_memory"
       ],
-      "max_tool_calls": 2,
+      "max_tool_calls": 5,
       "allowed_write_attempts": [],
       "required_observations": [
         {
@@ -2369,7 +2369,7 @@
         "lookup_memory",
         "update_event"
       ],
-      "max_tool_calls": 6
+      "max_tool_calls": 5
     }
   },
   {
@@ -2426,7 +2426,7 @@
         "list_events",
         "update_event"
       ],
-      "max_tool_calls": 6
+      "max_tool_calls": 5
     }
   },
   {

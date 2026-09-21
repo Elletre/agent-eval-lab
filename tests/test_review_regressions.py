@@ -125,7 +125,7 @@ def test_inspect_rejected_tool_calls_count_toward_budget(
     sample = log.samples[0]
     assert sample.error is None
     score = sample.scores["deterministic_checks"]
-    # Both rejected and accepted attempts consume the one-call budget.
+    # Both rejected and accepted attempts count against the loop guard.
     assert score.value == 0, score.metadata
     assert score.metadata["tool_calls"] == 2
-    assert not score.metadata["checks"]["tool_budget"]
+    assert not score.metadata["checks"]["tool_loop_guard"]
