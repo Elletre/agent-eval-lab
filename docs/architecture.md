@@ -2,7 +2,7 @@
 
 ## Scope
 
-A Python evaluation harness with 40 synthetic scenarios, two prompt variants, an offline demonstration, and an Inspect AI adapter for real model runs. No real inboxes, calendars, credentials, or networked tools are used by the agent. Model-provider requests are the only network access needed for live evaluation.
+A Python evaluation harness with 45 synthetic scenarios, two prompt variants, an offline demonstration, and an Inspect AI adapter for real model runs. No real inboxes, calendars, credentials, or networked tools are used by the agent. Model-provider requests are the only network access needed for live evaluation.
 
 ## Boundaries
 

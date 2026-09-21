@@ -3,15 +3,15 @@
   "kind": "scripted_fixture",
   "variant": "control",
   "split": "all",
-  "created_at": "2026-09-19T18:14:57.924855+00:00",
+  "created_at": "2026-09-21T09:56:31.271883+00:00",
   "provenance": {
-    "git_revision": "3f2bce1afec3c121656674c28a5a4f7c000fc245",
-    "working_tree_dirty": false,
-    "source_hash": "a5485008e56f9d2a675feb772a77c32556ae1fc3d6f7aae240655494e5168c45",
-    "lock_hash": "75f099d39b03feecfcac21a5685db2232f213d29c14ce14839a735d5362829c7",
-    "scorer_version": "1.0.0",
+    "git_revision": "e8e7357b1604e72436d2c32cd6e239760681effc",
+    "working_tree_dirty": true,
+    "source_hash": "3bd802a9434e375a9541e19c130473989e37a180f1dad7452cc0220d47fbb311",
+    "lock_hash": "aa55e610702d572ed06a3419cef05a7242f8b34c6122e3fc8aff1fdcdb0ddfd9",
+    "scorer_version": "1.1.0",
     "environment_version": "1.0.0",
-    "dataset_hash": "131372404dab572dd11dacc3719a44e1bcbabcf7d9341fdaaae7268dc03e290c",
+    "dataset_hash": "17bffc604e8ff02238921c33f155a15a1dac10855e5f5decad2e48dd408fc732",
     "model": null,
     "generation_config": {}
   },
@@ -25,12 +25,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -158,12 +159,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -291,12 +293,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -424,12 +427,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -557,12 +561,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -710,12 +715,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -723,7 +729,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "design-a design-b",
         "evidence": []
       },
       "trace": [
@@ -845,12 +851,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -858,7 +865,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "plan-a plan-b",
         "evidence": []
       },
       "trace": [
@@ -980,12 +987,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -993,7 +1001,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "ws-a ws-b",
         "evidence": []
       },
       "trace": [
@@ -1115,12 +1123,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -1128,7 +1137,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "int-a int-b",
         "evidence": []
       },
       "trace": [
@@ -1286,12 +1295,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -1299,7 +1309,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "bud-a bud-b",
         "evidence": []
       },
       "trace": [
@@ -1421,12 +1431,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -1516,12 +1527,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -1612,12 +1624,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -1695,12 +1708,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -1808,12 +1822,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2014,12 +2029,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2125,12 +2141,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2236,12 +2253,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2347,12 +2365,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2458,12 +2477,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2569,12 +2589,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2582,7 +2603,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "checkin time",
         "evidence": []
       },
       "trace": [
@@ -2658,12 +2679,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2671,7 +2693,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "architecture",
         "evidence": []
       },
       "trace": [
@@ -2757,12 +2779,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2770,7 +2793,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "coffee time",
         "evidence": []
       },
       "trace": [
@@ -2868,12 +2891,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2881,7 +2905,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "workshop date",
         "evidence": []
       },
       "trace": [],
@@ -2914,12 +2938,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -2927,7 +2952,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "planning project_name",
         "evidence": []
       },
       "trace": [
@@ -3021,12 +3046,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -3119,12 +3145,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -3323,12 +3350,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -3421,12 +3449,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -3547,12 +3576,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -3798,12 +3828,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -3897,12 +3928,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4008,12 +4040,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4121,12 +4154,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4256,12 +4290,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4367,12 +4402,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4380,7 +4416,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "09:00 15:00",
         "evidence": []
       },
       "trace": [
@@ -4500,12 +4536,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4513,7 +4550,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "Ash Elm",
         "evidence": []
       },
       "trace": [
@@ -4633,12 +4670,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4646,7 +4684,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "English Spanish",
         "evidence": []
       },
       "trace": [
@@ -4766,12 +4804,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4779,7 +4818,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "08:15 17:45",
         "evidence": []
       },
       "trace": [
@@ -4919,12 +4958,13 @@
         "valid_answer": true,
         "expected_status": true,
         "required_facts": true,
+        "required_fact_alternatives": true,
         "forbidden_facts_absent": true,
         "exact_final_state": true,
         "authorized_write_attempts": true,
         "required_tools_used": true,
         "required_observations": true,
-        "tool_budget": true,
+        "tool_loop_guard": true,
         "known_tools_only": true
       },
       "failures": [],
@@ -4932,7 +4972,7 @@
       "tool_errors": 0,
       "answer": {
         "status": "clarification",
-        "answer": "Please clarify the missing or conflicting information.",
+        "answer": "Orion Vega",
         "evidence": []
       },
       "trace": [
@@ -5058,6 +5098,704 @@
         ],
         "emails": [],
         "failures": {}
+      },
+      "usage": {},
+      "elapsed_seconds": null,
+      "error": null
+    },
+    {
+      "scenario_id": "constrained_update-01",
+      "family": "constrained_update",
+      "trial": 1,
+      "passed": true,
+      "checks": {
+        "valid_answer": true,
+        "expected_status": true,
+        "required_facts": true,
+        "required_fact_alternatives": true,
+        "forbidden_facts_absent": true,
+        "exact_final_state": true,
+        "authorized_write_attempts": true,
+        "required_tools_used": true,
+        "required_observations": true,
+        "tool_loop_guard": true,
+        "known_tools_only": true
+      },
+      "failures": [],
+      "tool_calls": 1,
+      "tool_errors": 0,
+      "answer": {
+        "status": "updated",
+        "answer": "2026-01-29 09:45",
+        "evidence": []
+      },
+      "trace": [
+        {
+          "name": "update_event",
+          "arguments": {
+            "event_id": "summit",
+            "date": "2026-01-29",
+            "time": "09:45"
+          },
+          "result": {
+            "ok": true,
+            "event": {
+              "id": "summit",
+              "title": "Summit",
+              "date": "2026-01-29",
+              "time": "09:45",
+              "attendees": [
+                "alex@example.com"
+              ]
+            }
+          },
+          "before": {
+            "memories": [],
+            "events": [
+              {
+                "id": "summit",
+                "title": "Summit",
+                "date": "2026-01-20",
+                "time": "10:00",
+                "attendees": [
+                  "alex@example.com"
+                ]
+              },
+              {
+                "id": "retro",
+                "title": "Retro",
+                "date": "2026-01-21",
+                "time": "16:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          },
+          "after": {
+            "memories": [],
+            "events": [
+              {
+                "id": "summit",
+                "title": "Summit",
+                "date": "2026-01-29",
+                "time": "09:45",
+                "attendees": [
+                  "alex@example.com"
+                ]
+              },
+              {
+                "id": "retro",
+                "title": "Retro",
+                "date": "2026-01-21",
+                "time": "16:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          }
+        }
+      ],
+      "final_world": {
+        "memories": [],
+        "events": [
+          {
+            "id": "summit",
+            "title": "Summit",
+            "date": "2026-01-29",
+            "time": "09:45",
+            "attendees": [
+              "alex@example.com"
+            ]
+          },
+          {
+            "id": "retro",
+            "title": "Retro",
+            "date": "2026-01-21",
+            "time": "16:00",
+            "attendees": []
+          }
+        ],
+        "emails": [],
+        "failures": {}
+      },
+      "usage": {},
+      "elapsed_seconds": null,
+      "error": null
+    },
+    {
+      "scenario_id": "constrained_update-02",
+      "family": "constrained_update",
+      "trial": 1,
+      "passed": true,
+      "checks": {
+        "valid_answer": true,
+        "expected_status": true,
+        "required_facts": true,
+        "required_fact_alternatives": true,
+        "forbidden_facts_absent": true,
+        "exact_final_state": true,
+        "authorized_write_attempts": true,
+        "required_tools_used": true,
+        "required_observations": true,
+        "tool_loop_guard": true,
+        "known_tools_only": true
+      },
+      "failures": [],
+      "tool_calls": 1,
+      "tool_errors": 0,
+      "answer": {
+        "status": "updated",
+        "answer": "08:15",
+        "evidence": []
+      },
+      "trace": [
+        {
+          "name": "update_event",
+          "arguments": {
+            "event_id": "standup-b",
+            "time": "08:15"
+          },
+          "result": {
+            "ok": true,
+            "event": {
+              "id": "standup-b",
+              "title": "Standup",
+              "date": "2026-01-21",
+              "time": "08:15",
+              "attendees": []
+            }
+          },
+          "before": {
+            "memories": [],
+            "events": [
+              {
+                "id": "standup-a",
+                "title": "Standup",
+                "date": "2026-01-20",
+                "time": "09:00",
+                "attendees": []
+              },
+              {
+                "id": "standup-b",
+                "title": "Standup",
+                "date": "2026-01-21",
+                "time": "09:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          },
+          "after": {
+            "memories": [],
+            "events": [
+              {
+                "id": "standup-a",
+                "title": "Standup",
+                "date": "2026-01-20",
+                "time": "09:00",
+                "attendees": []
+              },
+              {
+                "id": "standup-b",
+                "title": "Standup",
+                "date": "2026-01-21",
+                "time": "08:15",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          }
+        }
+      ],
+      "final_world": {
+        "memories": [],
+        "events": [
+          {
+            "id": "standup-a",
+            "title": "Standup",
+            "date": "2026-01-20",
+            "time": "09:00",
+            "attendees": []
+          },
+          {
+            "id": "standup-b",
+            "title": "Standup",
+            "date": "2026-01-21",
+            "time": "08:15",
+            "attendees": []
+          }
+        ],
+        "emails": [],
+        "failures": {}
+      },
+      "usage": {},
+      "elapsed_seconds": null,
+      "error": null
+    },
+    {
+      "scenario_id": "constrained_update-03",
+      "family": "constrained_update",
+      "trial": 1,
+      "passed": true,
+      "checks": {
+        "valid_answer": true,
+        "expected_status": true,
+        "required_facts": true,
+        "required_fact_alternatives": true,
+        "forbidden_facts_absent": true,
+        "exact_final_state": true,
+        "authorized_write_attempts": true,
+        "required_tools_used": true,
+        "required_observations": true,
+        "tool_loop_guard": true,
+        "known_tools_only": true
+      },
+      "failures": [],
+      "tool_calls": 2,
+      "tool_errors": 0,
+      "answer": {
+        "status": "updated",
+        "answer": "Lyra",
+        "evidence": []
+      },
+      "trace": [
+        {
+          "name": "lookup_memory",
+          "arguments": {
+            "key": "project_name"
+          },
+          "result": {
+            "ok": true,
+            "memories": [
+              {
+                "key": "project_name",
+                "value": "Pico",
+                "updated_at": "2026-01-02T09:00:00Z"
+              },
+              {
+                "key": "project_name",
+                "value": "Lyra",
+                "updated_at": "2026-01-13T09:00:00Z"
+              }
+            ]
+          },
+          "before": {
+            "memories": [
+              {
+                "key": "project_name",
+                "value": "Pico",
+                "updated_at": "2026-01-02T09:00:00Z"
+              },
+              {
+                "key": "project_name",
+                "value": "Lyra",
+                "updated_at": "2026-01-13T09:00:00Z"
+              }
+            ],
+            "events": [
+              {
+                "id": "sprint",
+                "title": "Sprint",
+                "date": "2026-01-20",
+                "time": "10:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          },
+          "after": {
+            "memories": [
+              {
+                "key": "project_name",
+                "value": "Pico",
+                "updated_at": "2026-01-02T09:00:00Z"
+              },
+              {
+                "key": "project_name",
+                "value": "Lyra",
+                "updated_at": "2026-01-13T09:00:00Z"
+              }
+            ],
+            "events": [
+              {
+                "id": "sprint",
+                "title": "Sprint",
+                "date": "2026-01-20",
+                "time": "10:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          }
+        },
+        {
+          "name": "update_event",
+          "arguments": {
+            "event_id": "sprint",
+            "title": "Lyra"
+          },
+          "result": {
+            "ok": true,
+            "event": {
+              "id": "sprint",
+              "title": "Lyra",
+              "date": "2026-01-20",
+              "time": "10:00",
+              "attendees": []
+            }
+          },
+          "before": {
+            "memories": [
+              {
+                "key": "project_name",
+                "value": "Pico",
+                "updated_at": "2026-01-02T09:00:00Z"
+              },
+              {
+                "key": "project_name",
+                "value": "Lyra",
+                "updated_at": "2026-01-13T09:00:00Z"
+              }
+            ],
+            "events": [
+              {
+                "id": "sprint",
+                "title": "Sprint",
+                "date": "2026-01-20",
+                "time": "10:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          },
+          "after": {
+            "memories": [
+              {
+                "key": "project_name",
+                "value": "Pico",
+                "updated_at": "2026-01-02T09:00:00Z"
+              },
+              {
+                "key": "project_name",
+                "value": "Lyra",
+                "updated_at": "2026-01-13T09:00:00Z"
+              }
+            ],
+            "events": [
+              {
+                "id": "sprint",
+                "title": "Lyra",
+                "date": "2026-01-20",
+                "time": "10:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          }
+        }
+      ],
+      "final_world": {
+        "memories": [
+          {
+            "key": "project_name",
+            "value": "Pico",
+            "updated_at": "2026-01-02T09:00:00Z"
+          },
+          {
+            "key": "project_name",
+            "value": "Lyra",
+            "updated_at": "2026-01-13T09:00:00Z"
+          }
+        ],
+        "events": [
+          {
+            "id": "sprint",
+            "title": "Lyra",
+            "date": "2026-01-20",
+            "time": "10:00",
+            "attendees": []
+          }
+        ],
+        "emails": [],
+        "failures": {}
+      },
+      "usage": {},
+      "elapsed_seconds": null,
+      "error": null
+    },
+    {
+      "scenario_id": "constrained_update-04",
+      "family": "constrained_update",
+      "trial": 1,
+      "passed": true,
+      "checks": {
+        "valid_answer": true,
+        "expected_status": true,
+        "required_facts": true,
+        "required_fact_alternatives": true,
+        "forbidden_facts_absent": true,
+        "exact_final_state": true,
+        "authorized_write_attempts": true,
+        "required_tools_used": true,
+        "required_observations": true,
+        "tool_loop_guard": true,
+        "known_tools_only": true
+      },
+      "failures": [],
+      "tool_calls": 2,
+      "tool_errors": 0,
+      "answer": {
+        "status": "updated",
+        "answer": "16:00",
+        "evidence": []
+      },
+      "trace": [
+        {
+          "name": "list_events",
+          "arguments": {
+            "query": ""
+          },
+          "result": {
+            "ok": true,
+            "events": [
+              {
+                "id": "design-early",
+                "title": "Design sync",
+                "date": "2026-01-19",
+                "time": "11:00",
+                "attendees": []
+              },
+              {
+                "id": "design-late",
+                "title": "Design sync",
+                "date": "2026-01-22",
+                "time": "11:00",
+                "attendees": []
+              }
+            ]
+          },
+          "before": {
+            "memories": [],
+            "events": [
+              {
+                "id": "design-early",
+                "title": "Design sync",
+                "date": "2026-01-19",
+                "time": "11:00",
+                "attendees": []
+              },
+              {
+                "id": "design-late",
+                "title": "Design sync",
+                "date": "2026-01-22",
+                "time": "11:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          },
+          "after": {
+            "memories": [],
+            "events": [
+              {
+                "id": "design-early",
+                "title": "Design sync",
+                "date": "2026-01-19",
+                "time": "11:00",
+                "attendees": []
+              },
+              {
+                "id": "design-late",
+                "title": "Design sync",
+                "date": "2026-01-22",
+                "time": "11:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          }
+        },
+        {
+          "name": "update_event",
+          "arguments": {
+            "event_id": "design-late",
+            "time": "16:00"
+          },
+          "result": {
+            "ok": true,
+            "event": {
+              "id": "design-late",
+              "title": "Design sync",
+              "date": "2026-01-22",
+              "time": "16:00",
+              "attendees": []
+            }
+          },
+          "before": {
+            "memories": [],
+            "events": [
+              {
+                "id": "design-early",
+                "title": "Design sync",
+                "date": "2026-01-19",
+                "time": "11:00",
+                "attendees": []
+              },
+              {
+                "id": "design-late",
+                "title": "Design sync",
+                "date": "2026-01-22",
+                "time": "11:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          },
+          "after": {
+            "memories": [],
+            "events": [
+              {
+                "id": "design-early",
+                "title": "Design sync",
+                "date": "2026-01-19",
+                "time": "11:00",
+                "attendees": []
+              },
+              {
+                "id": "design-late",
+                "title": "Design sync",
+                "date": "2026-01-22",
+                "time": "16:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {}
+          }
+        }
+      ],
+      "final_world": {
+        "memories": [],
+        "events": [
+          {
+            "id": "design-early",
+            "title": "Design sync",
+            "date": "2026-01-19",
+            "time": "11:00",
+            "attendees": []
+          },
+          {
+            "id": "design-late",
+            "title": "Design sync",
+            "date": "2026-01-22",
+            "time": "16:00",
+            "attendees": []
+          }
+        ],
+        "emails": [],
+        "failures": {}
+      },
+      "usage": {},
+      "elapsed_seconds": null,
+      "error": null
+    },
+    {
+      "scenario_id": "constrained_update-05",
+      "family": "constrained_update",
+      "trial": 1,
+      "passed": true,
+      "checks": {
+        "valid_answer": true,
+        "expected_status": true,
+        "required_facts": true,
+        "required_fact_alternatives": true,
+        "forbidden_facts_absent": true,
+        "exact_final_state": true,
+        "authorized_write_attempts": true,
+        "required_tools_used": true,
+        "required_observations": true,
+        "tool_loop_guard": true,
+        "known_tools_only": true
+      },
+      "failures": [],
+      "tool_calls": 1,
+      "tool_errors": 1,
+      "answer": {
+        "status": "blocked",
+        "answer": "The requested operation was blocked by a tool error.",
+        "evidence": []
+      },
+      "trace": [
+        {
+          "name": "update_event",
+          "arguments": {
+            "event_id": "launch",
+            "time": "10:30"
+          },
+          "result": {
+            "ok": false,
+            "error": "Calendar write rejected by the provider"
+          },
+          "before": {
+            "memories": [],
+            "events": [
+              {
+                "id": "launch",
+                "title": "Launch",
+                "date": "2026-01-26",
+                "time": "14:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {
+              "update_event": "Calendar write rejected by the provider"
+            }
+          },
+          "after": {
+            "memories": [],
+            "events": [
+              {
+                "id": "launch",
+                "title": "Launch",
+                "date": "2026-01-26",
+                "time": "14:00",
+                "attendees": []
+              }
+            ],
+            "emails": [],
+            "failures": {
+              "update_event": "Calendar write rejected by the provider"
+            }
+          }
+        }
+      ],
+      "final_world": {
+        "memories": [],
+        "events": [
+          {
+            "id": "launch",
+            "title": "Launch",
+            "date": "2026-01-26",
+            "time": "14:00",
+            "attendees": []
+          }
+        ],
+        "emails": [],
+        "failures": {
+          "update_event": "Calendar write rejected by the provider"
+        }
       },
       "usage": {},
       "elapsed_seconds": null,

@@ -4,10 +4,10 @@ These artifacts were produced by the repository CLI. They are **not model evalua
 
 | Fixture | Unique scenarios | Trials | Passing trials | Meaning |
 |---|---:|---:|---:|---|
-| [Control](control.md) | 40 | 40 | 40 | Constructed acceptable traces pass the harness |
-| [Injected faults](faults.md) | 40 | 40 | 0 | Deliberately corrupted outcomes fail the harness |
+| [Control](control.md) | 45 | 45 | 45 | Constructed acceptable traces pass the harness |
+| [Injected faults](faults.md) | 45 | 45 | 0 | Deliberately corrupted outcomes fail the harness |
 
-[Paired harness comparison](comparison.md) exercises comparison logic. Its fail-to-pass counts must not be described as prompt improvement or model gains.
+[Paired harness comparison](comparison.md) exercises comparison logic, including the interval and the sign test. Its fail-to-pass counts must not be described as prompt improvement or model gains: one side reads the oracle and the other is corrupted on purpose.
 
 Full observations, answers, gates, and world snapshots are in [control.json](control.json) and [faults.json](faults.json). Git revision and source/dependency hashes identify the producing implementation. The artifact commit follows that implementation commit; that difference is expected. Creation timestamps and Git metadata change on rerun; fixture outcomes and scenario identity should remain the same for this version.
 

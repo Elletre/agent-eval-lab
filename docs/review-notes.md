@@ -19,6 +19,19 @@ Additional checks cover deep-copy isolation between sessions and tool observatio
 
 The reviewer independently ran the full test suite successfully during implementation. Use `uv run pytest -q` to obtain the current test count and result; this note deliberately avoids a count that would become stale as tests are added. Native Inspect-loop tests use `mockllm` and require no provider credentials.
 
+## Second review round (2026-09-21)
+
+A later review ran the harness against deliberately lazy agents rather than reading the code
+alone, which surfaced two measurement problems that the first round did not.
+
+| Finding | Resolution and evidence |
+| --- | --- |
+| A clarification case graded the status and nothing about the question, so "Which option do you mean? Please confirm the details." passed 15 of the 40 cases — every ambiguous-event, missing-information and conflicting-memory case. The improved policy tells the model to ask, so the shortcut favoured the variant under test. | Clarifications must now name the conflicting values, the candidate events, or the object and its missing field, with `required_fact_groups` allowing alternative phrasings of a date. `tests/test_negative_controls.py` keeps the vague clarification and the idle agent at zero passes. |
+| Every request carried the behaviour under test: "Look it up before updating", "If a tool fails, stop and report that the task is blocked", "ask me for those details", "keep its other fields unchanged". The baseline policy therefore received the improved policy inside the task. | All 45 requests were rewritten to state the goal, the object, and the values the user supplies, and nothing about procedure, error handling or when to ask. |
+| Thirty-five of forty cases allowed one or two tool calls, so a model that verified a write before answering failed for being careful. | The budget became a loop guard above the work each case needs, and tool economy is reported as a diagnostic instead. |
+| Five of forty cases exercised the write gates, which are the most valuable ones in the scorer. | The `constrained_update` family adds five: a two-field update, an update to one of two identically titled events, a title taken from memory, an update after disambiguating by date, and a permitted write the provider rejects. |
+| Reports refused significance claims and reported no uncertainty at all, which leaves a reader to over-read a difference in counts. | Wilson intervals over scenarios, a paired bootstrap, an exact sign test, and the floor this dataset can resolve: six scenarios must move the same way, 22% of the development split. |
+
 ## Interpretation limits
 
 - **No live-model conclusion follows from the example reports.** Oracle-driven controls validate the harness and intentionally corrupted controls demonstrate failure detection. Mock-model integration tests validate wiring. Neither measures LLM capability or proves an improved prompt is better.
