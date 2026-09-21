@@ -161,6 +161,7 @@ src/agent_eval_lab/
 tests/                       Unit, integration, and review regression tests
 docs/                        Architecture, protocol, dataset, review notes
 reports/                     Reproducible offline example artifacts
+experiments/                 Live model runs, with what each one measured
 ```
 
 ## Limits and next experiments
