@@ -14,8 +14,8 @@ from agent_eval_lab.reporting import compare_runs, summarize
 
 def test_dataset_inventory_and_controls():
     cases = load_scenarios(split="all")
-    assert len(cases) == 40
-    assert Counter(s.split for s in cases) == {"dev": 24, "test": 16}
+    assert len(cases) == 45
+    assert Counter(s.split for s in cases) == {"dev": 27, "test": 18}
     assert set(Counter(s.family for s in cases).values()) == {5}
     good = demo_run(cases, "control")
     assert all(row["passed"] for row in good["results"])
@@ -28,9 +28,9 @@ def test_cli_creates_parseable_trace_and_report(tmp_path):
     assert main(["demo", "--repeats", "2", "--output", str(output)]) == 0
     run = json.loads(output.read_text())
     stats = summarize(run)
-    assert stats["scenarios"] == 24
-    assert stats["trials"] == 48
-    assert stats["stable_pass_scenarios"] == 24
+    assert stats["scenarios"] == 27
+    assert stats["trials"] == 54
+    assert stats["stable_pass_scenarios"] == 27
     assert "NOT model performance" in output.with_suffix(".md").read_text()
     assert "source_hash" in run["provenance"]
 

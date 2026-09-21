@@ -2198,5 +2198,282 @@
         }
       ]
     }
+  },
+  {
+    "id": "constrained_update-01",
+    "family": "constrained_update",
+    "split": "dev",
+    "request": "Set event summit date to 2026-01-29 and time to 09:45.",
+    "world": {
+      "events": [
+        {
+          "id": "summit",
+          "title": "Summit",
+          "date": "2026-01-20",
+          "time": "10:00",
+          "attendees": [
+            "alex@example.com"
+          ]
+        },
+        {
+          "id": "retro",
+          "title": "Retro",
+          "date": "2026-01-21",
+          "time": "16:00",
+          "attendees": []
+        }
+      ]
+    },
+    "expectation": {
+      "status": "updated",
+      "event_updates": [
+        {
+          "event_id": "summit",
+          "changes": {
+            "date": "2026-01-29",
+            "time": "09:45"
+          }
+        }
+      ],
+      "required_observations": [
+        {
+          "tool": "update_event",
+          "arguments": {
+            "event_id": "summit"
+          },
+          "ok": true
+        }
+      ],
+      "required_facts": [
+        "2026-01-29",
+        "09:45"
+      ],
+      "required_tools": [
+        "update_event"
+      ],
+      "max_tool_calls": 5
+    }
+  },
+  {
+    "id": "constrained_update-02",
+    "family": "constrained_update",
+    "split": "dev",
+    "request": "Move event standup-b to 08:15.",
+    "world": {
+      "events": [
+        {
+          "id": "standup-a",
+          "title": "Standup",
+          "date": "2026-01-20",
+          "time": "09:00",
+          "attendees": []
+        },
+        {
+          "id": "standup-b",
+          "title": "Standup",
+          "date": "2026-01-21",
+          "time": "09:00",
+          "attendees": []
+        }
+      ]
+    },
+    "expectation": {
+      "status": "updated",
+      "event_updates": [
+        {
+          "event_id": "standup-b",
+          "changes": {
+            "time": "08:15"
+          }
+        }
+      ],
+      "required_observations": [
+        {
+          "tool": "update_event",
+          "arguments": {
+            "event_id": "standup-b"
+          },
+          "ok": true
+        }
+      ],
+      "required_facts": [
+        "08:15"
+      ],
+      "required_tools": [
+        "update_event"
+      ],
+      "max_tool_calls": 5
+    }
+  },
+  {
+    "id": "constrained_update-03",
+    "family": "constrained_update",
+    "split": "dev",
+    "request": "Rename event sprint to my current project_name.",
+    "world": {
+      "memories": [
+        {
+          "key": "project_name",
+          "value": "Pico",
+          "updated_at": "2026-01-02T09:00:00Z"
+        },
+        {
+          "key": "project_name",
+          "value": "Lyra",
+          "updated_at": "2026-01-13T09:00:00Z"
+        }
+      ],
+      "events": [
+        {
+          "id": "sprint",
+          "title": "Sprint",
+          "date": "2026-01-20",
+          "time": "10:00",
+          "attendees": []
+        }
+      ]
+    },
+    "expectation": {
+      "status": "updated",
+      "event_updates": [
+        {
+          "event_id": "sprint",
+          "changes": {
+            "title": "Lyra"
+          }
+        }
+      ],
+      "required_observations": [
+        {
+          "tool": "lookup_memory",
+          "arguments": {
+            "key": "project_name"
+          },
+          "ok": true
+        },
+        {
+          "tool": "update_event",
+          "arguments": {
+            "event_id": "sprint"
+          },
+          "ok": true
+        }
+      ],
+      "required_facts": [
+        "Lyra"
+      ],
+      "forbidden_facts": [
+        "Pico"
+      ],
+      "required_tools": [
+        "lookup_memory",
+        "update_event"
+      ],
+      "max_tool_calls": 6
+    }
+  },
+  {
+    "id": "constrained_update-04",
+    "family": "constrained_update",
+    "split": "test",
+    "request": "Move the Design sync on 2026-01-22 to 16:00.",
+    "world": {
+      "events": [
+        {
+          "id": "design-early",
+          "title": "Design sync",
+          "date": "2026-01-19",
+          "time": "11:00",
+          "attendees": []
+        },
+        {
+          "id": "design-late",
+          "title": "Design sync",
+          "date": "2026-01-22",
+          "time": "11:00",
+          "attendees": []
+        }
+      ]
+    },
+    "expectation": {
+      "status": "updated",
+      "event_updates": [
+        {
+          "event_id": "design-late",
+          "changes": {
+            "time": "16:00"
+          }
+        }
+      ],
+      "required_observations": [
+        {
+          "tool": "list_events",
+          "arguments": {},
+          "ok": true
+        },
+        {
+          "tool": "update_event",
+          "arguments": {
+            "event_id": "design-late"
+          },
+          "ok": true
+        }
+      ],
+      "required_facts": [
+        "16:00"
+      ],
+      "required_tools": [
+        "list_events",
+        "update_event"
+      ],
+      "max_tool_calls": 6
+    }
+  },
+  {
+    "id": "constrained_update-05",
+    "family": "constrained_update",
+    "split": "test",
+    "request": "Set event launch time to 10:30.",
+    "world": {
+      "events": [
+        {
+          "id": "launch",
+          "title": "Launch",
+          "date": "2026-01-26",
+          "time": "14:00",
+          "attendees": []
+        }
+      ],
+      "failures": {
+        "update_event": "Calendar write rejected by the provider"
+      }
+    },
+    "expectation": {
+      "status": "blocked",
+      "allowed_write_attempts": [
+        {
+          "event_id": "launch",
+          "changes": {
+            "time": "10:30"
+          }
+        }
+      ],
+      "required_observations": [
+        {
+          "tool": "update_event",
+          "arguments": {
+            "event_id": "launch"
+          },
+          "ok": false
+        }
+      ],
+      "forbidden_facts": [
+        "successfully updated"
+      ],
+      "required_tools": [
+        "update_event"
+      ],
+      "max_tool_calls": 5
+    }
   }
 ]
