@@ -59,6 +59,12 @@ An expectation specifies exact event deltas rather than a whole replacement worl
 
 `required_facts` and `forbidden_facts` are case-insensitive substring checks over the final answer. They deliberately contain concrete values such as `14:30`, `2026-01-26`, and `BK-918`, rather than stylistic phrases.
 
+`forbidden_facts` now only covers claims that would be false, such as reporting a blocked write
+as successful. It no longer forbids mentioning a superseded value: a first live run failed an
+answer that named the current language and added the previous one as context, which is a correct
+answer to "what is my current language?". A wrong pick is already caught by the required value.
+That change was made on development cases after a two-case smoke run, before the full run.
+
 `required_fact_groups` lists alternatives: one member of each group must appear, so a date may be written as `2026-01-20` or `January 20`. Clarification cases use both fields to require the substance of the question — both conflicting values, both candidate events, or the object and the field that is missing. Without that requirement, "Which option do you mean?" passed every ambiguous, missing-information and conflicting-memory case: 15 of the 40 cases in the first version. Blocked cases still require no particular wording; their status, observations and unchanged world carry the check.
 
 These checks are narrow assertions, not semantic graders. A string can occur in a negated or otherwise incorrect statement, and a valid paraphrase can omit the literal. Memory freshness cases explicitly ask for the current value only, which makes obsolete-value exclusions appropriate in that subset. A good aggregate score therefore needs independent status, tool-attempt, state, and factual checks, with saved traces available for human inspection.

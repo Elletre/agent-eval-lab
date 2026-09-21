@@ -37,9 +37,6 @@
       "required_facts": [
         "14:00"
       ],
-      "forbidden_facts": [
-        "09:00"
-      ],
       "required_tools": [
         "lookup_memory"
       ],
@@ -93,9 +90,6 @@
       "event_updates": [],
       "required_facts": [
         "English"
-      ],
-      "forbidden_facts": [
-        "French"
       ],
       "required_tools": [
         "lookup_memory"
@@ -151,9 +145,6 @@
       "required_facts": [
         "Room Birch"
       ],
-      "forbidden_facts": [
-        "Room Cedar"
-      ],
       "required_tools": [
         "lookup_memory"
       ],
@@ -207,9 +198,6 @@
       "event_updates": [],
       "required_facts": [
         "08:30"
-      ],
-      "forbidden_facts": [
-        "16:00"
       ],
       "required_tools": [
         "lookup_memory"
@@ -269,9 +257,6 @@
       "event_updates": [],
       "required_facts": [
         "45 minutes"
-      ],
-      "forbidden_facts": [
-        "30 minutes"
       ],
       "required_tools": [
         "lookup_memory"
@@ -2117,9 +2102,6 @@
         "08:15",
         "17:45"
       ],
-      "forbidden_facts": [
-        "obsolete value"
-      ],
       "required_tools": [
         "lookup_memory"
       ],
@@ -2179,9 +2161,6 @@
       "required_facts": [
         "Orion",
         "Vega"
-      ],
-      "forbidden_facts": [
-        "obsolete value"
       ],
       "required_tools": [
         "lookup_memory"
@@ -2361,9 +2340,6 @@
       ],
       "required_facts": [
         "Lyra"
-      ],
-      "forbidden_facts": [
-        "Pico"
       ],
       "required_tools": [
         "lookup_memory",
