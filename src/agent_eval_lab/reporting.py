@@ -3,6 +3,13 @@
 from collections import Counter, defaultdict
 from typing import Any
 
+from agent_eval_lab.statistics import (
+    minimum_detectable_flips,
+    paired_delta,
+    pass_rate,
+    sign_test_exact,
+)
+
 
 def validate_run(run: dict[str, Any]) -> None:
     if run.get("schema_version") != 1 or run.get("kind") not in {
@@ -80,11 +87,14 @@ def summarize(run: dict[str, Any]) -> dict[str, Any]:
     families: dict[str, list[bool]] = defaultdict(list)
     for row in rows:
         families[row["family"]].append(row["passed"])
+    outcomes = {name: [row["passed"] for row in group] for name, group in grouped.items()}
+    interval = pass_rate(outcomes)
     return {
         "scenarios": len(grouped),
         "trials": len(rows),
         "passed": sum(row["passed"] for row in rows),
         "pass_rate": sum(row["passed"] for row in rows) / len(rows),
+        "scenario_pass_rate": vars(interval),
         "stable_pass_scenarios": sum(
             all(row["passed"] for row in group) for group in grouped.values()
         ),
@@ -106,6 +116,7 @@ def summarize(run: dict[str, Any]) -> dict[str, Any]:
 
 def report_markdown(run: dict[str, Any]) -> str:
     stats = summarize(run)
+    rate = stats["scenario_pass_rate"]
     model_run = run["kind"] == "model"
     heading = "Model evaluation" if model_run else "Harness verification (NOT model performance)"
     text = [
@@ -120,14 +131,17 @@ def report_markdown(run: dict[str, Any]) -> str:
         f"| Unique scenarios | {stats['scenarios']} |",
         f"| Trials | {stats['trials']} |",
         f"| Passed trials | {stats['passed']}/{stats['trials']} ({stats['pass_rate']:.1%}) |",
+        "| Pass rate, 95% interval over scenarios | "
+        f"{rate['estimate']:.0%} ({rate['low']:.0%}–{rate['high']:.0%}) |",
         f"| Scenarios passing every repeat | {stats['stable_pass_scenarios']} |",
         f"| Scenarios with mixed repeat outcomes | {stats['mixed_outcome_scenarios']} |",
         f"| Tool calls / errors | {stats['tool_calls']} / {stats['tool_errors']} |",
         f"| Tool calls per trial (mean / max) | {stats['mean_tool_calls']:.1f} / "
         f"{stats['max_tool_calls']} |",
         "",
-        "Repeated trials are not independent new scenarios. No population-level claim or",
-        "statistical significance is inferred from this small, hand-authored dataset.",
+        "Repeated trials are not independent new scenarios, so the interval counts",
+        f"scenarios ({stats['scenarios']}), not trials ({stats['trials']}). A hand-authored",
+        "diagnostic suite does not support a population-level claim either way.",
         "",
     ]
     if not model_run:
@@ -182,6 +196,21 @@ def compare_runs(left: dict[str, Any], right: dict[str, Any]) -> str:
         raise ValueError("Runs must have the same scenario/trial pairs")
     improved = sum(not a[key]["passed"] and b[key]["passed"] for key in a)
     regressed = sum(a[key]["passed"] and not b[key]["passed"] for key in a)
+
+    def outcomes(run: dict[str, Any]) -> dict[str, list[bool]]:
+        grouped: dict[str, list[bool]] = defaultdict(list)
+        for row in run["results"]:
+            grouped[row["scenario_id"]].append(row["passed"])
+        return dict(grouped)
+
+    before, after = outcomes(left), outcomes(right)
+    rates_before = {name: sum(v) / len(v) for name, v in before.items()}
+    rates_after = {name: sum(v) / len(v) for name, v in after.items()}
+    scenarios_up = sum(rates_after[name] > rates_before[name] for name in rates_before)
+    scenarios_down = sum(rates_after[name] < rates_before[name] for name in rates_before)
+    delta = paired_delta(before, after)
+    p_value = sign_test_exact(scenarios_up, scenarios_down)
+    needed = minimum_detectable_flips()
     label = (
         "Model comparison" if left["kind"] == "model" else "Harness comparison (NOT LLM results)"
     )
@@ -191,13 +220,20 @@ def compare_runs(left: dict[str, Any], right: dict[str, Any]) -> str:
             "",
             f"`{left['variant']}` → `{right['variant']}`",
             "",
-            f"- Paired trials: {len(a)}",
-            f"- Fail → pass: {improved}",
-            f"- Pass → fail: {regressed}",
-            f"- Unchanged: {len(a) - improved - regressed}",
+            f"- Paired trials: {len(a)} · fail → pass: {improved} · pass → fail: {regressed} · "
+            f"unchanged: {len(a) - improved - regressed}",
+            f"- Scenarios that moved: {scenarios_up} up, {scenarios_down} down "
+            f"(of {len(rates_before)})",
+            f"- Change in pass rate: {delta.estimate:+.0%} "
+            f"[{delta.low:+.0%}, {delta.high:+.0%}], bootstrap over scenarios",
+            "- Exact sign test over scenarios: "
+            + ("p < 0.001" if p_value < 0.001 else f"p = {p_value:.3f}"),
+            "",
+            f"With {len(rates_before)} scenarios, {needed} of them must move the same way before",
+            f"the sign test can call a difference at 5% — {needed / len(rates_before):.0%} of the"
+            " suite. Real effects smaller than that exist and this dataset cannot see them.",
             "",
             "Pairs share scenario/trial IDs, not necessarily matched model randomness.",
-            "Repeats are not independent scenarios. No significance claim is made.",
             "",
         ]
     )

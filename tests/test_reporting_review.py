@@ -60,5 +60,7 @@ def test_real_regression_is_reported_without_inflating_scenarios(run):
     right["results"][0]["passed"] = False
     right["results"][0]["failures"] = ["required_facts"]
     comparison = compare_runs(left, right)
-    assert "Pass → fail: 1" in comparison
+    assert "pass → fail: 1" in comparison
+    assert "1 down" in comparison, "a scenario that lost its only trial must be reported as moved"
+    assert "sign test" in comparison, "a comparison without uncertainty invites over-reading"
     assert "NOT LLM results" in comparison
