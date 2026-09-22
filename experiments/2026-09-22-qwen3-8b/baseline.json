@@ -9674,7 +9674,7 @@
         }
       },
       "elapsed_seconds": 120.043,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "conflicting_memory-02",
@@ -10221,7 +10221,7 @@
         }
       },
       "elapsed_seconds": 120.009,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "constrained_update-02",

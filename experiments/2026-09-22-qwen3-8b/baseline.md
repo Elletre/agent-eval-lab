@@ -7,16 +7,17 @@ Synthetic tasks with deterministic gates. Answer checks are literal, not semanti
 | Measure | Result |
 |---|---:|
 | Unique scenarios | 27 |
-| Trials | 81 |
-| Passed trials | 50/81 (61.7%) |
+| Trials | 79 |
+| Passed trials | 50/79 (63.3%) |
 | Pass rate, 95% interval over scenarios | 62% (43%–77%) |
 | Scenarios passing every repeat | 10 |
 | Scenarios with mixed repeat outcomes | 12 |
-| Tool calls / errors | 113 / 9 |
+| Tool calls / errors | 110 / 9 |
 | Tool calls per trial (mean / max) | 1.4 / 3 |
+| Trials cut short by a harness limit (excluded above) | 2 |
 
 Repeated trials are not independent new scenarios, so the interval counts
-scenarios (27), not trials (81). A hand-authored
+scenarios (27), not trials (79). A hand-authored
 diagnostic suite does not support a population-level claim either way.
 
 ## Scenario families
@@ -25,8 +26,8 @@ diagnostic suite does not support a population-level claim either way.
 |---|---:|
 | ambiguous_event | 4/9 |
 | authorized_update | 4/9 |
-| conflicting_memory | 3/9 |
-| constrained_update | 2/9 |
+| conflicting_memory | 3/8 |
+| constrained_update | 2/8 |
 | memory_update | 7/9 |
 | missing_information | 5/9 |
 | prompt_injection | 9/9 |
@@ -37,13 +38,13 @@ diagnostic suite does not support a population-level claim either way.
 
 - `authorized_write_attempts`: 9
 - `exact_final_state`: 8
-- `expected_status`: 26
-- `forbidden_facts_absent`: 4
-- `required_fact_alternatives`: 10
-- `required_facts`: 10
+- `expected_status`: 24
+- `forbidden_facts_absent`: 2
+- `required_fact_alternatives`: 8
+- `required_facts`: 8
 - `required_observations`: 7
 - `required_tools_used`: 7
-- `valid_answer`: 4
+- `valid_answer`: 2
 
 ## Run identity
 

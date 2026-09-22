@@ -199,16 +199,24 @@ def compare_runs(left: dict[str, Any], right: dict[str, Any]) -> str:
     a, b = keyed(left), keyed(right)
     if a.keys() != b.keys():
         raise ValueError("Runs must have the same scenario/trial pairs")
+    # A pair is only comparable when both sides actually ran: a trial the harness
+    # cut short carries no evidence about the assistant on either side.
+    dropped = [pair for pair in a if a[pair].get("error") or b[pair].get("error")]
+    for pair in dropped:
+        del a[pair]
+        del b[pair]
+    if not a:
+        raise ValueError("No comparable pairs remain after removing trials the harness cut short")
     improved = sum(not a[key]["passed"] and b[key]["passed"] for key in a)
     regressed = sum(a[key]["passed"] and not b[key]["passed"] for key in a)
 
-    def outcomes(run: dict[str, Any]) -> dict[str, list[bool]]:
+    def outcomes(rows: dict[tuple[str, int], dict[str, Any]]) -> dict[str, list[bool]]:
         grouped: dict[str, list[bool]] = defaultdict(list)
-        for row in run["results"]:
-            grouped[row["scenario_id"]].append(row["passed"])
+        for (scenario, _), row in rows.items():
+            grouped[scenario].append(row["passed"])
         return dict(grouped)
 
-    before, after = outcomes(left), outcomes(right)
+    before, after = outcomes(a), outcomes(b)
     rates_before = {name: sum(v) / len(v) for name, v in before.items()}
     rates_after = {name: sum(v) / len(v) for name, v in after.items()}
     scenarios_up = sum(rates_after[name] > rates_before[name] for name in rates_before)
@@ -227,6 +235,7 @@ def compare_runs(left: dict[str, Any], right: dict[str, Any]) -> str:
             "",
             f"- Paired trials: {len(a)} · fail → pass: {improved} · pass → fail: {regressed} · "
             f"unchanged: {len(a) - improved - regressed}",
+            f"- Pairs dropped because a harness limit stopped one side: {len(dropped)}",
             f"- Scenarios that moved: {scenarios_up} up, {scenarios_down} down "
             f"(of {len(rates_before)})",
             f"- Change in pass rate: {delta.estimate:+.0%} "

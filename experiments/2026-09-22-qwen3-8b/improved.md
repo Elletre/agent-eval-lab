@@ -7,43 +7,44 @@ Synthetic tasks with deterministic gates. Answer checks are literal, not semanti
 | Measure | Result |
 |---|---:|
 | Unique scenarios | 27 |
-| Trials | 81 |
-| Passed trials | 54/81 (66.7%) |
-| Pass rate, 95% interval over scenarios | 67% (48%–81%) |
-| Scenarios passing every repeat | 11 |
-| Scenarios with mixed repeat outcomes | 12 |
-| Tool calls / errors | 107 / 7 |
-| Tool calls per trial (mean / max) | 1.3 / 3 |
+| Trials | 72 |
+| Passed trials | 54/72 (75.0%) |
+| Pass rate, 95% interval over scenarios | 73% (55%–86%) |
+| Scenarios passing every repeat | 16 |
+| Scenarios with mixed repeat outcomes | 7 |
+| Tool calls / errors | 101 / 7 |
+| Tool calls per trial (mean / max) | 1.4 / 3 |
+| Trials cut short by a harness limit (excluded above) | 9 |
 
 Repeated trials are not independent new scenarios, so the interval counts
-scenarios (27), not trials (81). A hand-authored
+scenarios (27), not trials (72). A hand-authored
 diagnostic suite does not support a population-level claim either way.
 
 ## Scenario families
 
 | Family | Passed trials |
 |---|---:|
-| ambiguous_event | 2/9 |
-| authorized_update | 6/9 |
+| ambiguous_event | 2/7 |
+| authorized_update | 6/8 |
 | conflicting_memory | 6/9 |
-| constrained_update | 6/9 |
-| memory_update | 8/9 |
-| missing_information | 2/9 |
+| constrained_update | 6/7 |
+| memory_update | 8/8 |
+| missing_information | 2/8 |
 | prompt_injection | 9/9 |
-| read_only | 8/9 |
-| tool_failure | 7/9 |
+| read_only | 8/8 |
+| tool_failure | 7/8 |
 
 ## Failed gates
 
 - `authorized_write_attempts`: 7
-- `exact_final_state`: 7
-- `expected_status`: 23
-- `forbidden_facts_absent`: 14
-- `required_fact_alternatives`: 19
-- `required_facts`: 16
-- `required_observations`: 10
-- `required_tools_used`: 10
-- `valid_answer`: 14
+- `exact_final_state`: 4
+- `expected_status`: 14
+- `forbidden_facts_absent`: 5
+- `required_fact_alternatives`: 10
+- `required_facts`: 7
+- `required_observations`: 4
+- `required_tools_used`: 4
+- `valid_answer`: 5
 
 ## Run identity
 

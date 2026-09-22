@@ -311,7 +311,7 @@
       },
       "usage": {},
       "elapsed_seconds": 120.029,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "ambiguous_event-03",
@@ -910,7 +910,7 @@
         }
       },
       "elapsed_seconds": 120.008,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "authorized_update-03",
@@ -1770,7 +1770,7 @@
       },
       "usage": {},
       "elapsed_seconds": 120.435,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "constrained_update-03",
@@ -1981,7 +1981,7 @@
         }
       },
       "elapsed_seconds": 120.021,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "memory_update-01",
@@ -2666,7 +2666,7 @@
       },
       "usage": {},
       "elapsed_seconds": 120.027,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "missing_information-03",
@@ -3404,7 +3404,7 @@
         }
       },
       "elapsed_seconds": 120.009,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "read_only-02",
@@ -3813,7 +3813,7 @@
       },
       "usage": {},
       "elapsed_seconds": 120.027,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "tool_failure-03",
@@ -4055,7 +4055,7 @@
         }
       },
       "elapsed_seconds": 120.007,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "ambiguous_event-02",
@@ -6572,7 +6572,7 @@
         }
       },
       "elapsed_seconds": 120.042,
-      "error": null
+      "error": "time limit: Time limit exceeded. limit: 120 seconds"
     },
     {
       "scenario_id": "missing_information-01",
