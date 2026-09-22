@@ -217,7 +217,10 @@ def deterministic_checks(scenarios: dict[str, Scenario]) -> Scorer:
 
 @task
 def assistant_eval(
-    variant: str = "improved", split: str = "dev", dataset_path: str | None = None
+    variant: str = "improved",
+    split: str = "dev",
+    dataset_path: str | None = None,
+    time_limit: int = 120,
 ) -> Task:
     """Evaluate an assistant using a selected Inspect model (no model is hardcoded).
 
@@ -242,7 +245,7 @@ def assistant_eval(
         message_limit=30,
         token_limit=30_000,
         turn_limit=10,
-        time_limit=120,
+        time_limit=time_limit,
         metadata={
             "variant": variant,
             "split": split,

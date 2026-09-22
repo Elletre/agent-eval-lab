@@ -80,7 +80,10 @@ def validate_run(run: dict[str, Any]) -> None:
 
 def summarize(run: dict[str, Any]) -> dict[str, Any]:
     validate_run(run)
-    rows = run["results"]
+    recorded = run["results"]
+    rows = [row for row in recorded if not row.get("error")]
+    if not rows:
+        raise ValueError("Every trial was cut short by the harness; there is nothing to summarise")
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in rows:
         grouped[row["scenario_id"]].append(row)
@@ -92,6 +95,7 @@ def summarize(run: dict[str, Any]) -> dict[str, Any]:
     return {
         "scenarios": len(grouped),
         "trials": len(rows),
+        "stopped_by_limits": len(recorded) - len(rows),
         "passed": sum(row["passed"] for row in rows),
         "pass_rate": sum(row["passed"] for row in rows) / len(rows),
         "scenario_pass_rate": vars(interval),
@@ -138,6 +142,7 @@ def report_markdown(run: dict[str, Any]) -> str:
         f"| Tool calls / errors | {stats['tool_calls']} / {stats['tool_errors']} |",
         f"| Tool calls per trial (mean / max) | {stats['mean_tool_calls']:.1f} / "
         f"{stats['max_tool_calls']} |",
+        f"| Trials cut short by a harness limit (excluded above) | {stats['stopped_by_limits']} |",
         "",
         "Repeated trials are not independent new scenarios, so the interval counts",
         f"scenarios ({stats['scenarios']}), not trials ({stats['trials']}). A hand-authored",

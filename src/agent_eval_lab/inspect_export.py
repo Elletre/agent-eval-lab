@@ -92,6 +92,13 @@ def export_log(path: Path) -> dict[str, Any]:
             answer = None
         if answer is None and score.value == 1:
             raise ValueError(f"Sample {sample.id} passes despite a malformed final answer")
+        # A sample the harness cut short (wall clock, message or token limit) says
+        # nothing about the assistant's behaviour. The protocol asks for those to be
+        # separated from model behaviour rather than silently counted as failures.
+        limit = getattr(sample, "limit", None)
+        stopped = None if limit is None else f"{limit.type} limit: {limit.reason}"
+        if stopped is not None and bool(score.value):
+            raise ValueError(f"Sample {sample.id} passed after hitting a harness limit")
         rows.append(
             {
                 "scenario_id": str(sample.id),
@@ -110,7 +117,7 @@ def export_log(path: Path) -> dict[str, Any]:
                     for model, usage in sample.model_usage.items()
                 },
                 "elapsed_seconds": sample.total_time,
-                "error": None,
+                "error": stopped,
             }
         )
     return {

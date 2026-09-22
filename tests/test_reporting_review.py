@@ -6,7 +6,7 @@ import pytest
 
 from agent_eval_lab.dataset import load_scenarios
 from agent_eval_lab.demo import demo_run
-from agent_eval_lab.reporting import compare_runs, report_markdown, validate_run
+from agent_eval_lab.reporting import compare_runs, report_markdown, summarize, validate_run
 
 
 @pytest.fixture
@@ -64,3 +64,21 @@ def test_real_regression_is_reported_without_inflating_scenarios(run):
     assert "1 down" in comparison, "a scenario that lost its only trial must be reported as moved"
     assert "sign test" in comparison, "a comparison without uncertainty invites over-reading"
     assert "NOT LLM results" in comparison
+
+
+def test_a_trial_cut_short_by_a_limit_is_excluded_from_the_rate(run):
+    """A wall-clock limit says nothing about the assistant; it must not read as a failure."""
+    stopped = deepcopy(run["results"][0])
+    stopped["trial"] = 2
+    stopped["passed"] = False
+    stopped["checks"] = {key: False for key in stopped["checks"]}
+    stopped["failures"] = sorted(stopped["checks"])
+    stopped["error"] = "time limit: Time limit exceeded. limit: 120 seconds"
+    run["results"].append(stopped)
+
+    stats = summarize(run)
+
+    assert stats["stopped_by_limits"] == 1
+    assert stats["trials"] == 1, "the cut-short trial must leave the denominator"
+    assert stats["pass_rate"] == 1.0
+    assert "Trials cut short by a harness limit (excluded above) | 1" in report_markdown(run)
