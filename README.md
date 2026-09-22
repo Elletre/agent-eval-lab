@@ -4,7 +4,7 @@
 
 Can a more explicit agent policy improve task completion without increasing unintended actions? This repository makes that question testable: 45 synthetic scenarios, isolated tool state, inspectable scoring, two prompt variants, repeated trials, and reproducible reports with the uncertainty stated.
 
-> **Results status:** the checked-in examples are offline harness controls, not LLM performance results. The real-model adapter is integration-tested with Inspect's mock provider. No commercial-model benchmark result is claimed yet.
+> **Results status:** one live run is checked in — local `qwen3:8b`, both policies, 27 development scenarios × 3 repeats ([results](experiments/2026-09-22-qwen3-8b)). The explicit policy scored 11 points higher and that is **not** a result: on 27 scenarios the difference cannot be told from zero (p = 0.30). No commercial-model benchmark result is claimed. The `reports/` artifacts remain offline harness controls, not performance.
 
 ## Start here
 
@@ -20,7 +20,13 @@ uv run agent-eval compare runs/faults.json runs/control.json --output runs/compa
 
 No API key, Docker, inbox, or calendar account is needed. Each demo creates JSON traces and a Markdown report. `control` constructs expected behavior using grading data; `faults` deliberately corrupts an outcome. Neither is an autonomous agent. A 100% control pass rate checks the harness, not AI capability.
 
-**For a quick repository review:** read [architecture](docs/architecture.md), inspect [one scenario](data/scenarios.json), review [the scorer](src/agent_eval_lab/evaluation.py), and open [example results](reports/README.md).
+**For a quick repository review:** read [architecture](docs/architecture.md), inspect [one scenario](data/scenarios.json), review [the scorer](src/agent_eval_lab/evaluation.py), and open [the live run](experiments/2026-09-22-qwen3-8b) or the [offline controls](reports/README.md).
+
+Three live runs were needed to get one whose numbers are about the assistant. The first two
+measured the harness instead: answers rejected over the shape of a field the project does not
+grade, a prompt-injection family where the identifier read as a title so the model never opened
+the email, and a wall clock that charged the slower policy for thinking longer. Each is written
+up where it was found, with the fix.
 
 ## What is evaluated?
 

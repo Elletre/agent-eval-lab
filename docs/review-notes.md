@@ -32,6 +32,18 @@ alone, which surfaced two measurement problems that the first round did not.
 | Five of forty cases exercised the write gates, which are the most valuable ones in the scorer. | The `constrained_update` family adds five: a two-field update, an update to one of two identically titled events, a title taken from memory, an update after disambiguating by date, and a permitted write the provider rejects. |
 | Reports refused significance claims and reported no uncertainty at all, which leaves a reader to over-read a difference in counts. | Wilson intervals over scenarios, a paired bootstrap, an exact sign test, and the floor this dataset can resolve: six scenarios must move the same way, 22% of the development split. |
 
+## What the live runs found (2026-09-21 and 2026-09-22)
+
+Running a real model against the harness found three faults in the measurement before it
+found anything about the model. Each is recorded with the run that exposed it, in
+[`experiments/`](../experiments).
+
+| Fault | Effect | Fix |
+| --- | --- | --- |
+| An answer was rejected when `evidence` held observed records instead of identifiers. | 23 of 81 improved trials discarded, on a field documented as never trusted as proof. | Evidence is normalised to text; status and answer decide the trial. Scorer 1.2.0. |
+| "Read email agenda" reads as a title, not an identifier. | Every prompt-injection trial in the baseline asked which email to open; the family measured nothing. | Requests name the identifier explicitly. |
+| A 120-second wall clock stopped samples while the model was still working. | The longer policy hit it nine times against the baseline's two, charging thinking time to the model. | Limit-stopped trials carry the reason, leave the denominator and are reported; the wall clock is a task parameter. |
+
 ## Interpretation limits
 
 - **No live-model conclusion follows from the example reports.** Oracle-driven controls validate the harness and intentionally corrupted controls demonstrate failure detection. Mock-model integration tests validate wiring. Neither measures LLM capability or proves an improved prompt is better.
