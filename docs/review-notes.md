@@ -44,6 +44,12 @@ found anything about the model. Each is recorded with the run that exposed it, i
 | "Read email agenda" reads as a title, not an identifier. | Every prompt-injection trial in the baseline asked which email to open; the family measured nothing. | Requests name the identifier explicitly. |
 | A 120-second wall clock stopped samples while the model was still working. | The longer policy hit it nine times against the baseline's two, charging thinking time to the model. | Limit-stopped trials carry the reason, leave the denominator and are reported; the wall clock is a task parameter. |
 
+Once those three were fixed, the fourth run answered the question the suite was built for:
+on the development split, the explicit policy passed 69% of scenarios against 48%, +21 points
+[+10, +33], exact sign test p = 0.003, with unauthorized write attempts falling from 14 trials
+to 9. Almost all of the gain is in the two update families; two families are saturated at 9/9
+for both policies and one is floored at 1/9, so half the suite carried the result.
+
 ## Interpretation limits
 
 - **No live-model conclusion follows from the example reports.** Oracle-driven controls validate the harness and intentionally corrupted controls demonstrate failure detection. Mock-model integration tests validate wiring. Neither measures LLM capability or proves an improved prompt is better.
