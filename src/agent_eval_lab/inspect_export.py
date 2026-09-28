@@ -80,7 +80,19 @@ def export_log(path: Path) -> dict[str, Any]:
             or len(failures) != len(set(failures))
         ):
             raise ValueError(f"Sample {sample.id} has inconsistent score metadata")
-        trace = [ToolCall.model_validate(item) for item in details["trace"]]
+        recorded = details["trace"]
+        if isinstance(recorded, str):
+            # Inspect thins any metadata value over 1k when it writes a sample summary, and a
+            # sample restored by `inspect eval-retry` carries the thinned copy: the world
+            # snapshots that make a long trace large are gone from the log for good. The
+            # verdict and the gates survive, so the trial is real; its trace is not
+            # recoverable, and pretending otherwise would put invented tool calls in a
+            # published artifact.
+            raise ValueError(
+                f"Sample {sample.id} lost its trace to log thinning "
+                f"({recorded!r}); re-run the sample rather than exporting it"
+            )
+        trace = [ToolCall.model_validate(item) for item in recorded]
         world = World.model_validate(details["world"])
         if details.get("tool_calls") != len(trace):
             raise ValueError(f"Sample {sample.id} has an inconsistent trace length")
