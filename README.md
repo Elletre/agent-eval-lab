@@ -4,7 +4,7 @@
 
 Can a more explicit agent policy improve task completion without increasing unintended actions? This repository makes that question testable: 45 synthetic scenarios, isolated tool state, inspectable scoring, two prompt variants, repeated trials, and reproducible reports with the uncertainty stated.
 
-> **Results status:** live runs are checked in. On the development split with local `qwen3:8b`, the explicit policy passed 69% of scenarios against 48%, +21 points [+10, +33], exact sign test p = 0.003, with unauthorized write attempts falling from 14 trials to 9 ([full run](experiments/2026-09-22-qwen3-8b)). That is one model on one 27-scenario suite, not a claim about prompts in general, and no commercial-model benchmark result is claimed. The `reports/` artifacts remain offline harness controls, not performance.
+> **Results status:** live runs are checked in. On the development split with local `qwen3:8b`, the explicit policy passed 69% of scenarios against 48%, +21 points [+10, +33], exact sign test p = 0.003, with unauthorized write attempts falling from 14 trials to 9 ([full run](experiments/2026-09-22-qwen3-8b)). The background that sits against: `baseline` run twice under identical settings moves 5 points and eleven scenarios on its own ([A/A control](experiments/2026-09-28-qwen3-8b-repeat)), so a small difference on this suite means nothing. That is one model on one 27-scenario suite, not a claim about prompts in general, and no commercial-model benchmark result is claimed. The `reports/` artifacts remain offline harness controls, not performance.
 
 ## Start here
 
@@ -22,7 +22,9 @@ No API key, Docker, inbox, or calendar account is needed. Each demo creates JSON
 
 **For a quick repository review:** read [architecture](docs/architecture.md), inspect [one scenario](data/scenarios.json), review [the scorer](src/agent_eval_lab/evaluation.py), and open [the live run](experiments/2026-09-22-qwen3-8b) or the [offline controls](reports/README.md).
 
-Four live runs were needed to get one whose numbers are about the assistant. The first three
+Five live runs stand behind the result. Four were needed to get one whose numbers are about
+the assistant; the fifth repeats the baseline against itself, so the published effect has a
+measured background rather than an assumed one. The first three
 measured the harness instead: answers rejected over the shape of a field the project does not
 grade, a prompt-injection family where the identifier read as a title so the model never opened
 the email, and a wall clock that charged the slower policy for thinking longer. Each is written
